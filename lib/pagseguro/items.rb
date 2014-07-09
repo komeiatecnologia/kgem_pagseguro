@@ -12,11 +12,7 @@ module PagSeguro
 
     def <<(item)
       item = ensure_type(Item, item)
-      if include?(item)
-        item.quantity += 1
-      else
-        @store << item
-      end
+      @store << item
     end
 
     def include?(item)

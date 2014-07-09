@@ -7,15 +7,6 @@ class ItemsTest < Test::Unit::TestCase
 		assert_instance_of PagSeguro::Items, items, 'Should return items object'
 	end
 
-	def test_increases_quantity_when_adding_duplicated_item
-		item = PagSeguro::Item.new(:id => 1234)
-    items = PagSeguro::Items.new
-    items << item
-    items << item
-    assert_equal 1, items.size, 'Should return 1 object item'
-    assert_equal 2, item.quantity, 'Should return 2 quantity item'
-  end
-
 	def test_return_2_object_item
 		items = PagSeguro::Items.new
 		2.times do |i|
