@@ -170,6 +170,8 @@ module PagSeguro
         "O valor informado no parâmetro page é superior a quantidade de páginas retornadas."
       when "13021"
         "Esta consulta não pode ser realizada pois o status da transação requisitada é inválido."
+      else
+        code
       end
     end
   end
