@@ -49,7 +49,7 @@ class PaymentRequestTest < Test::Unit::TestCase
 		  :email => "teste@gmail.com",
 		  :phone => {
 		    :area_code => 11,
-		    :number => "12345678"
+		    :number => "1234-5678"
 		  }
 		}
 		payment.shipping = {

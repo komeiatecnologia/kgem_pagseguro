@@ -76,7 +76,7 @@ module PagSeguro
       def serialize_phone(phone)
         xml_phone = '<phone>'
         xml_phone << "<areaCode>#{phone.area_code}</areaCode>" if phone.area_code
-        xml_phone << "<number>#{phone.number}</number>" if phone.number && phone.number.size >= 7
+        xml_phone << "<number>#{phone.number.gsub('-', '')}</number>" if phone.number && phone.number.size >= 7
         xml_phone << '</phone>'
         xml_phone
       end
