@@ -28,8 +28,9 @@ module PagSeguro
       response = connection_by_code("transactions", transaction_code)
       if response.content_type =~ /xml/
         xml = Nokogiri::XML(response.body)
+        puts xml
         if xml.css("transaction").any?
-          return true, load_from_xml(Nokogiri::XML(response.body).css("transaction").first)
+          return true, load_from_xml(xml.css("transaction").first)
         elsif xml.css("errors").any?
           return false, Errors.get_errors(xml)
         end
@@ -44,7 +45,7 @@ module PagSeguro
       if response.content_type =~ /xml/
         xml = Nokogiri::XML(response.body)
         if xml.css("transaction").any?
-          return true, load_from_xml(Nokogiri::XML(response.body).css("transaction").first)
+          return true, load_from_xml(xml.css("transaction").first)
         elsif xml.css("errors").any?
           return false, Errors.get_errors(xml)
         end
@@ -59,7 +60,7 @@ module PagSeguro
       if response.content_type =~ /xml/
         xml = Nokogiri::XML(response.body)
         if xml.css("transactionSearchResult").any?
-          return true, report_transaction(Nokogiri::XML(response.body))
+          return true, report_transaction(xml)
         elsif xml.css("errors").any?
           return false, Errors.get_errors(xml)
         end
@@ -74,7 +75,7 @@ module PagSeguro
       if response.content_type =~ /xml/
         xml = Nokogiri::XML(response.body)
         if xml.css("transactionSearchResult").any?
-          return true, report_transaction(Nokogiri::XML(response.body))
+          return true, report_transaction(xml)
         elsif xml.css("errors").any?
           return false, Errors.get_errors(xml)
         end
