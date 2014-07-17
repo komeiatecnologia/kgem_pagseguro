@@ -77,6 +77,26 @@ address.city        #Cidade do endereço de envio - Formato: Livre. Deve ser um 
 address.state       #Estado do endereço de envio - Formato: Duas letras, em maiúsculo, representando a sigla do estado brasileiro correspondente.
 address.country     #País do endereço de envio - Formato: No momento, apenas o valor BRA é permitido.
 
+ATRIBUTOS TRANSACTION
+transaction.created_at            #Data da criação da transação.
+transaction.code                  #Código identificador da transação.
+transaction.reference             #Código de referência da transação.
+transaction.type_id               #Tipo da transação.
+transaction.updated_at            #Data do último evento.
+transaction.status                #Status da transação.
+transaction.payment_method        #Tipo do meio de pagamento.
+transaction.payment_link
+transaction.gross_amount          #Valor bruto da transação.
+transaction.discount_amount       #Valor do desconto dado.
+transaction.fee_amount            #Valor total das taxas cobradas.
+transaction.net_amount            #Valor líquido da transação.
+transaction.extra_amount          #Valor extra.
+transaction.installments          #Número de parcelas.
+transaction.sender                #Dados do comprador.
+transaction.shipping              #Dados do frete.
+transaction.cancellation_source   #Origem do cancelamento.
+transaction.escrow_end_date       #Data de crédito.
+
 ##################### MÉTODOS #####################
 ##### MÉTODOS PAYMENT
 payment = PagSeguro::PaymentRequest.new

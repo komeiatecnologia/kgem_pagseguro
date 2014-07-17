@@ -28,7 +28,6 @@ module PagSeguro
       response = connection_by_code("transactions", transaction_code)
       if response.content_type =~ /xml/
         xml = Nokogiri::XML(response.body)
-        puts xml
         if xml.css("transaction").any?
           return true, load_from_xml(xml.css("transaction").first)
         elsif xml.css("errors").any?
