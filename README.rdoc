@@ -1,16 +1,3 @@
-##################### PARA CRIAR A ESTRUTURA DA GEM #####################
-mkdir -p kgem_pagseguro/{lib/pagseguro,test}
-
-##################### PARA EXECUTAR TESTE #####################
-rake test
-
-##################### PARA CRIAR O .GEM #####################
-gem build kgem_pagseguro.gemspec
-
-##################### RODAR GEM LOCAL #####################
-gem install kgem_pagseguro-0.0.1.gem --local
-depois inserir gem 'kgem_pagseguro' no arquivo Gemfile
-
 ##################### MÉTODOS DE TESTE #####################
 assert(boolean, message)
     Se o parâmetro boolean for nil ou false a asserção irá falhar.
@@ -30,7 +17,7 @@ assert_not_raise(Exception, ..., message) { block... }
 assert_match(pattern, string, message)
 assert_no_match(pattern, string, message)
     A asserção irá falhar a menos que string seja/não seja correspondente à expressão regular pattern.
-    
+
 assert_valid(record)
     Falha a menos que record não tenha erros de validação.
 
@@ -155,7 +142,7 @@ xml = payment.generate_xml
 success, response = payment.generate_redirect_url(xml)
 if success
 	#SUCESSO
-	puts response 
+	puts response
 else
 	#ERRO
 	puts '============'
